@@ -48,7 +48,11 @@ Soalan:
 ${question}
 `;
     
-    const response = await fetch(
+Soalan:
+${question}
+`;
+
+const response = await fetch(
   `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
   {
     method: "POST",
@@ -68,23 +72,23 @@ ${question}
     })
   }
 );
-    
-    const data = await response.json();
 
-    const jawapan =
-      data?.candidates?.[0]?.content?.parts?.[0]?.text ||
-      "Maaf, tiada jawapan.";
+const data = await response.json();
 
-    res.json({
-      title: topic || "CIKGU AI",
-      explanation: jawapan,
+const jawapan =
+  data?.candidates?.[0]?.content?.parts?.[0]?.text ||
+  "Maaf, tiada jawapan.";
 
-      steps: [
-        "Baca soalan dengan teliti.",
-        "Fahami maklumat yang diberikan.",
-        "Ikuti penerangan yang diberikan oleh Cikgu AI.",
-        "Cuba jawab atau buat latihan sendiri."
-      ],
+ res.json({
+   title: topic || "CIKGU AI",
+   explanation: jawapan,
+
+ steps: [
+    "Baca soalan dengan teliti.",
+    "Fahami maklumat yang diberikan.",
+    "Ikuti penerangan yang diberikan oleh Cikgu AI.",
+    "Cuba jawab atau buat latihan sendiri."
+    ],
 
       examples: [
         jawapan
