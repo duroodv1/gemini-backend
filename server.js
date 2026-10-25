@@ -65,7 +65,7 @@ ${question}
 
 res.json({
   title: topic || "CIKGU AI",
-  explanation: answer,
+  explanation: jawapan,
 
   steps: [
     "Baca soalan dengan teliti.",
@@ -75,7 +75,7 @@ res.json({
   ],
 
   examples: [
-    answer
+    jawapan
   ],
 
   quiz: [
