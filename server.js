@@ -61,13 +61,28 @@ ${question}
       data?.candidates?.[0]?.content?.parts?.[0]?.text ||
       "Maaf, tiada jawapan.";
 
-    res.json({
-      title: "CIKGU AI",
-      explanation: jawapan,
-      steps: [],
-      examples: [],
-      quiz: []
-    });
+res.json({
+  title: topic || "CIKGU AI",
+  explanation: answer,
+
+  steps: [
+    "Baca soalan dengan teliti.",
+    "Fahami maklumat yang diberikan.",
+    "Ikuti penerangan yang diberikan oleh Cikgu AI.",
+    "Cuba jawab sendiri sebelum melihat jawapan."
+  ],
+
+  examples: [
+    answer
+  ],
+
+  quiz: [
+    {
+      question: "Bolehkah kamu terangkan semula apa yang telah dipelajari?",
+      answer: ""
+    }
+  ]
+});
 
   } catch (error) {
     console.error(error);
