@@ -36,11 +36,16 @@ app.post("/api/teach", async (req, res) => {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({
-          contents: [{
-            parts: [{
-              text: `
+       text: `
 Anda ialah CIKGU AI JUNIOR PPKI.
+
+Jawab dalam Bahasa Melayu yang mudah difahami oleh murid pendidikan khas.
+
+Berikan:
+1. Penerangan ringkas.
+2. Sekurang-kurangnya 4 langkah pembelajaran yang jelas.
+3. 1 contoh mudah.
+4. 1 soalan latihan.
 
 Subjek: ${subject || ""}
 Topik: ${topic || ""}
@@ -48,10 +53,7 @@ Tahap: ${level || 1}
 
 Soalan:
 ${question}
-`
-            }]
-          }]
-        })
+
       }
     );
 
@@ -68,8 +70,8 @@ res.json({
   steps: [
     "Baca soalan dengan teliti.",
     "Fahami maklumat yang diberikan.",
-    "Ikuti penerangan yang diberikan oleh Cikgu AI.",
-    "Cuba jawab sendiri sebelum melihat jawapan."
+    "Ikuti penerangan yang diberikan.",
+    "Cuba buat latihan sendiri."
   ],
 
   examples: [
@@ -78,7 +80,7 @@ res.json({
 
   quiz: [
     {
-      question: "Bolehkah kamu terangkan semula apa yang telah dipelajari?",
+      question: "Apakah yang telah anda pelajari?",
       answer: ""
     }
   ]
